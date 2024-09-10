@@ -12,8 +12,8 @@ import { ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Zap by Paycrest",
-  description: "Crypto-to-fiat payments in a zap.",
+  title: "Element by Paycrest",
+  description: "Fast Crypto-to-fiat payments.",
 };
 
 export default function RootLayout({
@@ -31,7 +31,7 @@ export default function RootLayout({
               <main className="w-full flex-grow">{children}</main>
               <Footer />
             </div>
-            <LogoOutlineBg />
+            {/* <LogoOutlineBg /> */}
           </div>
           <ToastContainer
             position="bottom-right"

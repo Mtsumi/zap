@@ -2,6 +2,11 @@
 const nextConfig = {
   webpack: (config) => {
     config.externals.push("pino-pretty", "encoding");
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
     return config;
   },
 };

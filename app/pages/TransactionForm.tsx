@@ -31,12 +31,12 @@ const currencies = [
   {
     value: "KES",
     label: "\uD83C\uDDF0\uD83C\uDDEA Kenyan Shilling (KES)",
-    disabled: true,
+    // disabled: true,
   },
   {
     value: "GHS",
     label: "\uD83C\uDDEC\uD83C\uDDED Ghanaian Cedi (GHS)",
-    disabled: true,
+    // disabled: true,
   },
 ];
 
@@ -214,7 +214,7 @@ export const TransactionForm = ({
                     message: "Max. of 4 decimal places",
                   },
                 })}
-                className={`${inputClasses} pl-4 pr-14`}
+                className={`${inputClasses} border-[#F0B429] focus:border-[#F0B429] pl-4 pr-14`}
                 placeholder="0.5000"
                 title={
                   token === ""
@@ -324,7 +324,7 @@ export const TransactionForm = ({
               <SelectField
                 id="currency"
                 label="Currency"
-                defaultValue="NGN"
+                defaultValue="KES"
                 options={currencies}
                 validation={{
                   required: { value: true, message: "Select currency" },

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import { ThemeSwitch } from "./ThemeSwitch";
 import { WalletButtons } from "./WalletButtons";
-import { PaycrestLogo } from "./ImageAssets";
+import { ElementLogo } from "./ImageAssets";
 
 export const Navbar = () => {
   const account = useAccount();
@@ -25,8 +25,8 @@ export const Navbar = () => {
       >
         <div className="flex lg:flex-1">
           <Link href="/" className="flex items-center gap-1">
-            <div className="text-lg font-semibold">Zap</div>
-            <PaycrestLogo className="size-3" />
+            <div className="text-lg font-semibold"></div>
+            <ElementLogo className="size-10" />
           </Link>
         </div>
 
