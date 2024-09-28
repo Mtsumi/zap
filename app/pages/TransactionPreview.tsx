@@ -28,7 +28,7 @@ import {
   parseUnits,
 } from "viem";
 import { erc20Abi, gatewayAbi } from "../api/abi";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useSendSponsoredTransaction, useUserOpWait } from "@biconomy/use-aa";
 import { PiCheckCircleFill } from "react-icons/pi";
@@ -249,7 +249,18 @@ export const TransactionPreview = ({
     return () => {
       if (intervalId) clearInterval(intervalId);
     };
-  }, [client, isApprovalLogsFetched, isConfirming]);
+  }, [
+    client,
+    isApprovalLogsFetched,
+    isConfirming,
+    tokenAddress,
+    erc20Abi,
+    account.address,
+    account.chain?.name,
+    amount,
+    tokenDecimals,
+    getGatewayContractAddress,
+  ]);
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -339,7 +350,7 @@ export const TransactionPreview = ({
     return params;
   };
 
-  const createOrder = async () => {
+  const createOrder = useCallback(async () => {
     try {
       const params = await prepareCreateOrderParams();
       setCreatedAt(new Date().toISOString());
@@ -426,7 +437,7 @@ export const TransactionPreview = ({
       }
       setIsConfirming(false);
     }
-  };
+  },[account, amount, error, errorCount, gatewayAllowance, isConfirming, paymasterAllowance, smartGatewayAllowance, smartTokenBalance, tokenAddress, tokenDecimals, writeContractAsync]);
 
   const handlePaymentConfirmation = async () => {
     try {
